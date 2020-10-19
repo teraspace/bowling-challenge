@@ -1,0 +1,21 @@
+
+<h1>Bowling Game</h1>
+
+<h2>Upload new rolls list</h2>
+<p> Player: <%= current_player.email %> </p>
+
+<p>
+    <B>Sample 1, 12 Rolls and 12 Strikes:</B> X,X,X,X,X,X,X,X,X,X,X,X
+</p>
+<p>
+    <B>Sample 2, 20 rolls: 10 pairs of 9 and miss:</B> 9,-,9,-,9,-,9,-,9,-,9,-,9,-,9,-,9,-,9,-
+</p>
+<p>
+    <B>Sample 3,  ​21 rolls: 10 pairs of 5 and spare, with a final 5:</B> 5,/,5,/,5,/,5,/,5,/,5,/,5,/,5,/,5,/,5,/,5
+</p>
+<%= form_with(url: "/game/new", method: "post") do %>
+  <%= label_tag(:rolls, "Rolls comma separated or copy and paste from samples above:") %>
+  <%= text_field_tag(:rolls) %>
+  <%= submit_tag("Save") %>
+<% end %>
+<%= button_to "Back", game_index_path, method: :get %>

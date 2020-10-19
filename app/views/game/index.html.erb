@@ -1,0 +1,17 @@
+<h1>Bowling Game</h1>
+<p>Best top 5</p>
+
+
+<%   @games.order(score: :desc).first(5).each do |g| %>
+
+   <p> <%=g.id%> <%= g.player.email %> <%= g.score.to_s %> </p> 
+
+<%  end  %>
+
+<p>
+<%= button_to "New", game_new_path, method: :get %>
+</p>
+
+<p>
+<%= button_to "Sign out", destroy_player_session_path, method: :delete %>
+</p>
